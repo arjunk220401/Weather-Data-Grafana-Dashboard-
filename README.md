@@ -77,8 +77,9 @@ Purpose: Correlate humidity and pressure trends in the past hour with minute-lev
 
 ## 3. Extreme Wind Gust Events 
 Table: Extreme Wind Gust Events (Real-Time Alerts)*
-*InfluxQL Query*:
+InfluxQL Query:
 sql
+
 SELECT "time", "location", "wind_gust_speed" 
 FROM "weather_data" 
 WHERE time > now() - 1h 
@@ -89,8 +90,9 @@ AND "wind_gust_speed" > 40
 
 
 ## 4.  Real-Time Humidity and Pressure (Grouped Hourly)*
-*InfluxQL Query*:
+InfluxQL Query:
 sql
+
 SELECT MEAN("humidity9am"), MEAN("pressure9am") 
 FROM "weather_data" 
 WHERE time > now() - 1h 
@@ -100,8 +102,9 @@ GROUP BY time(5m) fill(null)
 *Visualization*: Multi-line graph.
 
 ## 5. Scatter Plot: Sunshine vs. Evaporation*
-*InfluxQL Query*:
+InfluxQL Query:
 sql
+
 SELECT "sunshine", "evaporation", "wind_gust_speed" 
 FROM "weather_data" 
 WHERE time > now() - 1h 
@@ -120,8 +123,9 @@ WHERE time > now() - 1h
 Purpose: Display the highest recorded temperature in the last hour.
 
 ## 7. Stacked Bar Chart: Wind Speeds (9AM vs 3PM) by Location*
-*InfluxQL Query*:
+InfluxQL Query:
 sql
+
 SELECT MEAN("windspeed9am"), MEAN("windspeed3pm") 
 FROM "weather_data" 
 WHERE time > now() - 1h 
@@ -131,8 +135,9 @@ GROUP BY "location" fill(null)
 *Visualization*: Stacked bar chart.
 
 ## 8. Time Series: Real-Time Temperature Variation*
-*InfluxQL Query*:
+InfluxQL Query:
 sql
+
 SELECT MEAN("max_temp"), MEAN("min_temp") 
 FROM "weather_data" 
 WHERE time > now() - 1h 
