@@ -57,7 +57,7 @@ vi) rain_today_code: Binary indicator for rainfall
 ## 1. Pie Chart: Rain Today Status
 InfluxQL Query:
 sql
-Copy code
+
 SELECT COUNT("rain_today_code") 
 FROM "weather_data" 
 WHERE time > now() - 1h 
@@ -68,7 +68,7 @@ Purpose: Show the proportion of locations reporting rain in the last hour.
 ## 2. Heatmap: Humidity and Pressure Relationship
 InfluxQL Query:
 sql
-Copy code
+
 SELECT MEAN("humidity9am"), MEAN("pressure9am") 
 FROM "weather_data" 
 WHERE time > now() - 1h 
@@ -113,7 +113,7 @@ AND "sunshine" > 0 AND "evaporation" > 0
 ## 6. Gauge: Maximum Temperature in the Last Hour
 InfluxQL Query:
 sql
-Copy code
+
 SELECT MAX("max_temp") 
 FROM "weather_data" 
 WHERE time > now() - 1h
