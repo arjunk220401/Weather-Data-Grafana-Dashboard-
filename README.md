@@ -2,20 +2,20 @@
 
 # Objectives
 
-# Weather Pattern Monitoring:
+## Weather Pattern Monitoring:
 
 i) Track real-time weather conditions
 ii) Monitor extreme weather events
 iii) Analyze daily temperature variations
 iv) Study relationship between humidity and pressure
 
-# Resource Management:
+## Resource Management:
 
 i) Optimize energy usage based on temperature patterns
 ii) Plan outdoor activities around weather conditions
 iii) Manage water resources using rainfall and evaporation data
 
-# Risk Assessment:
+## Risk Assessment:
 
 i) Monitor extreme wind events
 ii) Track rainfall patterns for flood risk
