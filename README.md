@@ -66,6 +66,7 @@ SELECT COUNT("rain_today_code")
 FROM "weather_data" 
 WHERE time > now() - 1h 
 GROUP BY "rain_today_code"
+
 Purpose: Show the proportion of locations reporting rain in the last hour.
 
 ## 2. Heatmap: Humidity and Pressure Relationship
@@ -78,6 +79,7 @@ SELECT MEAN("humidity9am"), MEAN("pressure9am")
 FROM "weather_data" 
 WHERE time > now() - 1h 
 GROUP BY time(1m) fill(null)
+
 Purpose: Correlate humidity and pressure trends in the past hour with minute-level granularity.
 
 ## 3. Extreme Wind Gust Events 
@@ -92,6 +94,7 @@ WHERE time > now() - 1h
 AND "wind_gust_speed" > 40
 
 Purpose: Display wind gust events exceeding 40 in the last hour.  
+
 Visualization: Table with alerts.
 
 
@@ -105,7 +108,8 @@ FROM "weather_data"
 WHERE time > now() - 1h 
 GROUP BY time(5m) fill(null)
 
-Purpose: Monitor real-time humidity and pressure, grouped every 5 minutes for the last hour.  
+Purpose: Monitor real-time humidity and pressure, grouped every 5 minutes for the last hour. 
+
 Visualization: Multi-line graph.
 
 ## 5. Scatter Plot: Sunshine vs. Evaporation*
@@ -119,6 +123,7 @@ WHERE time > now() - 1h
 AND "sunshine" > 0 AND "evaporation" > 0
 
 Purpose: Explore the relationship between sunshine and evaporation, scaled by wind gust speed, in real time.  
+
 Visualization: Scatter plot.
 
 ## 6. Gauge: Maximum Temperature in the Last Hour
@@ -130,6 +135,7 @@ sql
 SELECT MAX("max_temp") 
 FROM "weather_data" 
 WHERE time > now() - 1h
+
 Purpose: Display the highest recorded temperature in the last hour.
 
 ## 7. Stacked Bar Chart: Wind Speeds (9AM vs 3PM) by Location*
@@ -143,6 +149,7 @@ WHERE time > now() - 1h
 GROUP BY "location" fill(null)
 
 Purpose: Compare wind speeds at 9 AM and 3 PM across locations for the last hour.  
+
 Visualization: Stacked bar chart.
 
 ## 8. Time Series: Real-Time Temperature Variation*
@@ -156,6 +163,7 @@ WHERE time > now() - 1h
 GROUP BY time(5m) fill(null)
 
 Purpose: Show real-time temperature variation (max and min) in 5-minute intervals for the last hour.  
+
 Visualization: Multi-line graph.
 
 # Managerial Insights 
