@@ -112,7 +112,7 @@ Purpose: Monitor real-time humidity and pressure, grouped every 5 minutes for th
 
 Visualization: Multi-line graph.
 
-## 5. Scatter Plot: Sunshine vs. Evaporation*
+## 5. Scatter Plot: Sunshine vs. Evaporation
 InfluxQL Query:
 
 sql
