@@ -58,8 +58,10 @@ Dataset Attributes:
 
 ## 1. Pie Chart: Rain Today Status
 InfluxQL Query:
+
 sql
-Copy code
+
+
 SELECT COUNT("rain_today_code") 
 FROM "weather_data" 
 WHERE time > now() - 1h 
@@ -68,8 +70,10 @@ Purpose: Show the proportion of locations reporting rain in the last hour.
 
 ## 2. Heatmap: Humidity and Pressure Relationship
 InfluxQL Query:
+
 sql
-Copy code
+
+
 SELECT MEAN("humidity9am"), MEAN("pressure9am") 
 FROM "weather_data" 
 WHERE time > now() - 1h 
@@ -78,69 +82,81 @@ Purpose: Correlate humidity and pressure trends in the past hour with minute-lev
 
 ## 3. Extreme Wind Gust Events 
 Table: Extreme Wind Gust Events (Real-Time Alerts)*
-*InfluxQL Query*:
+InfluxQL Query:
+
 sql
+
 SELECT "time", "location", "wind_gust_speed" 
 FROM "weather_data" 
 WHERE time > now() - 1h 
 AND "wind_gust_speed" > 40
 
-*Purpose*: Display wind gust events exceeding 40 in the last hour.  
-*Visualization*: Table with alerts.
+Purpose: Display wind gust events exceeding 40 in the last hour.  
+Visualization: Table with alerts.
 
 
 ## 4.  Real-Time Humidity and Pressure (Grouped Hourly)*
-*InfluxQL Query*:
+InfluxQL Query:
+
 sql
+
 SELECT MEAN("humidity9am"), MEAN("pressure9am") 
 FROM "weather_data" 
 WHERE time > now() - 1h 
 GROUP BY time(5m) fill(null)
 
-*Purpose*: Monitor real-time humidity and pressure, grouped every 5 minutes for the last hour.  
-*Visualization*: Multi-line graph.
+Purpose: Monitor real-time humidity and pressure, grouped every 5 minutes for the last hour.  
+Visualization: Multi-line graph.
 
 ## 5. Scatter Plot: Sunshine vs. Evaporation*
-*InfluxQL Query*:
+InfluxQL Query:
+
 sql
+
 SELECT "sunshine", "evaporation", "wind_gust_speed" 
 FROM "weather_data" 
 WHERE time > now() - 1h 
 AND "sunshine" > 0 AND "evaporation" > 0
 
-*Purpose*: Explore the relationship between sunshine and evaporation, scaled by wind gust speed, in real time.  
-*Visualization*: Scatter plot.
+Purpose: Explore the relationship between sunshine and evaporation, scaled by wind gust speed, in real time.  
+Visualization: Scatter plot.
 
 ## 6. Gauge: Maximum Temperature in the Last Hour
 InfluxQL Query:
+
 sql
-Copy code
+
+
 SELECT MAX("max_temp") 
 FROM "weather_data" 
 WHERE time > now() - 1h
 Purpose: Display the highest recorded temperature in the last hour.
 
 ## 7. Stacked Bar Chart: Wind Speeds (9AM vs 3PM) by Location*
-*InfluxQL Query*:
+InfluxQL Query:
+
 sql
+
 SELECT MEAN("windspeed9am"), MEAN("windspeed3pm") 
 FROM "weather_data" 
 WHERE time > now() - 1h 
 GROUP BY "location" fill(null)
 
-*Purpose*: Compare wind speeds at 9 AM and 3 PM across locations for the last hour.  
-*Visualization*: Stacked bar chart.
+Purpose: Compare wind speeds at 9 AM and 3 PM across locations for the last hour.  
+Visualization: Stacked bar chart.
 
 ## 8. Time Series: Real-Time Temperature Variation*
-*InfluxQL Query*:
+InfluxQL Query:
+
 sql
+
 SELECT MEAN("max_temp"), MEAN("min_temp") 
 FROM "weather_data" 
 WHERE time > now() - 1h 
 GROUP BY time(5m) fill(null)
 
-*Purpose*: Show real-time temperature variation (max and min) in 5-minute intervals for the last hour.  
-*Visualization*: Multi-line graph.
+Purpose: Show real-time temperature variation (max and min) in 5-minute intervals for the last hour.  
+Visualization: Multi-line graph.
 
 # Managerial Insights 
 
