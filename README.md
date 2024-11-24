@@ -83,7 +83,7 @@ GROUP BY time(1m) fill(null)
 Purpose: Correlate humidity and pressure trends in the past hour with minute-level granularity.
 
 ## 3. Extreme Wind Gust Events 
-Table: Extreme Wind Gust Events (Real-Time Alerts)*
+Table: Extreme Wind Gust Events (Real-Time Alerts)
 InfluxQL Query:
 
 sql
@@ -98,7 +98,7 @@ Purpose: Display wind gust events exceeding 40 in the last hour.
 Visualization: Table with alerts.
 
 
-## 4.  Real-Time Humidity and Pressure (Grouped Hourly)*
+## 4.  Real-Time Humidity and Pressure (Grouped Hourly)
 InfluxQL Query:
 
 sql
@@ -138,7 +138,7 @@ WHERE time > now() - 1h
 
 Purpose: Display the highest recorded temperature in the last hour.
 
-## 7. Stacked Bar Chart: Wind Speeds (9AM vs 3PM) by Location*
+## 7. Stacked Bar Chart: Wind Speeds (9AM vs 3PM) by Location
 InfluxQL Query:
 
 sql
@@ -152,7 +152,7 @@ Purpose: Compare wind speeds at 9 AM and 3 PM across locations for the last hour
 
 Visualization: Stacked bar chart.
 
-## 8. Time Series: Real-Time Temperature Variation*
+## 8. Time Series: Real-Time Temperature Variation
 InfluxQL Query:
 
 sql
